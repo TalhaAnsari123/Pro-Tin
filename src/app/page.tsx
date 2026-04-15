@@ -2,7 +2,7 @@ import Calculator from "@/components/Calculator";
 
 export default function Home() {
   return (
-    <main className="relative h-[100svh] w-full flex items-center justify-center px-4 py-6 sm:py-12 overflow-hidden">
+    <main className="relative h-[100svh] w-full flex items-center justify-center px-4 py-6 sm:py-12 overflow-y-auto overflow-x-hidden">
       {/* Floating ambient blobs */}
       <div
         aria-hidden

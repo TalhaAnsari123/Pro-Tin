@@ -65,7 +65,7 @@ export default function Calculator() {
       <section
         className="relative glass glass-sheen rounded-[24px] p-4 sm:p-7 overflow-hidden"
       >
-        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <GlassInput
             label="Total Cost"
             placeholder="0.00"
