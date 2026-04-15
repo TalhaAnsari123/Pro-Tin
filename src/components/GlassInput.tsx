@@ -26,20 +26,20 @@ export default function GlassInput({
   const id = useId();
   return (
     <div>
-      <div className="flex items-baseline justify-between mb-1.5 px-1">
+      <div className="flex items-baseline justify-between mb-1 sm:mb-1.5 px-1">
         <label
           htmlFor={id}
-          className="text-[11px] uppercase tracking-[0.14em] text-white/60"
+          className="text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-white/60"
         >
           {label}
         </label>
         {hint && (
-          <span className="text-[10px] uppercase tracking-widest text-white/30">
+          <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-white/30">
             {hint}
           </span>
         )}
       </div>
-      <div className="glass-input rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2">
+      <div className="glass-input rounded-xl px-3 py-1.5 sm:px-4 sm:py-3 flex items-center gap-2">
         {prefix && (
           <span className="text-white/70 text-base sm:text-lg font-medium select-none">
             {prefix}

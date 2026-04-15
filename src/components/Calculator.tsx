@@ -63,9 +63,9 @@ export default function Calculator() {
   return (
     <div className="relative">
       <section
-        className="relative glass glass-sheen rounded-[24px] p-4 sm:p-7 overflow-hidden"
+        className="relative glass glass-sheen rounded-[20px] sm:rounded-[24px] p-3 sm:p-7 overflow-hidden"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
           <GlassInput
             label="Total Cost"
             placeholder="0.00"
@@ -100,18 +100,18 @@ export default function Calculator() {
           />
         </div>
 
-        <div className="mt-3 sm:mt-4 flex justify-end">
+        <div className="mt-2 sm:mt-4 flex justify-end">
           <button
             type="button"
             onClick={reset}
-            className="text-[11px] uppercase tracking-widest text-white/50 hover:text-white/90 transition-colors px-3 py-1.5 rounded-lg hover:bg-white/5"
+            className="text-[10px] sm:text-[11px] uppercase tracking-widest text-white/50 hover:text-white/90 transition-colors px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg hover:bg-white/5"
           >
             Reset
           </button>
         </div>
       </section>
 
-      <section className="mt-3 sm:mt-4 grid grid-cols-2 gap-3 sm:gap-4">
+      <section className="mt-2 sm:mt-4 grid grid-cols-2 gap-2 sm:gap-4">
         <ResultCard
           label="Price / gram of protein"
           value={formatMoney(pricePerGramProtein, 4)}
@@ -127,7 +127,7 @@ export default function Calculator() {
       </section>
 
       {totalProteinGrams > 0 && (
-        <div className="mt-3 text-center text-[11px] sm:text-xs text-white/50">
+        <div className="mt-2 sm:mt-3 text-center text-[10px] sm:text-xs text-white/50">
           Total protein in container:{" "}
           <span className="text-white/80">
             {new Intl.NumberFormat("en-US", {
