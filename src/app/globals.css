@@ -9,8 +9,10 @@
 
 html,
 body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
   -webkit-text-size-adjust: 100%;
-  overscroll-behavior-x: none;
 }
 
 body {
@@ -19,10 +21,27 @@ body {
     radial-gradient(1000px 700px at 110% 10%, rgba(0, 200, 255, 0.16), transparent 55%),
     radial-gradient(900px 700px at 50% 120%, rgba(255, 80, 200, 0.14), transparent 55%),
     #05060a;
-  background-attachment: fixed;
-  /* svh prevents the background from reflowing when the mobile keyboard opens */
-  min-height: 100svh;
-  overflow-x: hidden;
+  /* svh prevents the page from reflowing when the mobile keyboard opens */
+  height: 100svh;
+}
+
+/* Custom thin scrollbar for the comparison list */
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+.scroll-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 
 @layer components {

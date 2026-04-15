@@ -38,17 +38,17 @@ export default function ProteinList({
 
   if (entries.length === 0) {
     return (
-      <div className="mt-6 sm:mt-8 text-center text-xs sm:text-sm text-white/40 px-4">
-        No proteins added yet. Fill in the form and tap{" "}
-        <span className="text-white/70">Calculate</span> to start your
+      <div className="flex-1 min-h-0 flex items-center justify-center text-center text-xs sm:text-sm text-white/40 px-4">
+        Fill in the form and tap{" "}
+        <span className="text-white/70 mx-1">Calculate</span> to start your
         comparison.
       </div>
     );
   }
 
   return (
-    <section className="mt-5 sm:mt-7">
-      <div className="flex items-center justify-between mb-3 px-1">
+    <section className="flex-1 min-h-0 flex flex-col">
+      <div className="flex items-center justify-between mb-2 px-1 shrink-0">
         <h2 className="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-white/55">
           Comparison · {entries.length}
         </h2>
@@ -57,7 +57,7 @@ export default function ProteinList({
         </span>
       </div>
 
-      <ul className="space-y-3">
+      <ul className="scroll-area flex-1 min-h-0 overflow-y-auto space-y-2 sm:space-y-3 pr-1 pb-1">
         {sorted.map((entry) => {
           const isBest = entry.id === bestId && entries.length > 1;
           const isEditing = entry.id === editingId;

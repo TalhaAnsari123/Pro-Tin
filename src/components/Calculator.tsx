@@ -155,9 +155,6 @@ export default function Calculator() {
       mode: entry.mode,
     });
     setEditingId(id);
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
   };
 
   const onRemove = (id: string) => {
@@ -174,8 +171,8 @@ export default function Calculator() {
   };
 
   return (
-    <div className="relative">
-      <section className="relative glass glass-sheen rounded-[20px] sm:rounded-[24px] p-3 sm:p-7 overflow-hidden">
+    <div className="relative flex-1 min-h-0 flex flex-col gap-3 sm:gap-4">
+      <section className="relative glass glass-sheen rounded-[20px] sm:rounded-[24px] p-3 sm:p-6 overflow-hidden shrink-0">
         {editingId && (
           <div className="mb-3 flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg glass-soft text-[11px]">
             <span className="text-white/70">
