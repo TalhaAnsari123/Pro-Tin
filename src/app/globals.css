@@ -16,11 +16,7 @@ body {
 }
 
 body {
-  background:
-    radial-gradient(1200px 800px at 10% -10%, rgba(120, 80, 255, 0.18), transparent 60%),
-    radial-gradient(1000px 700px at 110% 10%, rgba(0, 200, 255, 0.16), transparent 55%),
-    radial-gradient(900px 700px at 50% 120%, rgba(255, 80, 200, 0.14), transparent 55%),
-    #05060a;
+  background: #07080c;
   /* svh prevents the page from reflowing when the mobile keyboard opens */
   height: 100svh;
 }

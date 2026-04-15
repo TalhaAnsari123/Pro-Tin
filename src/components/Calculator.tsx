@@ -174,7 +174,7 @@ export default function Calculator() {
     <div className="relative flex-1 min-h-0 flex flex-col gap-3 sm:gap-4">
       <section className="relative glass glass-sheen rounded-[20px] sm:rounded-[24px] p-3 sm:p-6 overflow-hidden shrink-0">
         {editingId && (
-          <div className="mb-3 flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg glass-soft text-[11px]">
+          <div className="mb-3 flex items-center justify-between gap-2 px-3 py-2 rounded-lg glass-soft text-sm">
             <span className="text-white/70">
               Editing{" "}
               <span className="text-white font-medium">
@@ -184,7 +184,7 @@ export default function Calculator() {
             <button
               type="button"
               onClick={onCancelEdit}
-              className="text-white/50 hover:text-white/90 uppercase tracking-widest text-[10px]"
+              className="text-white/60 hover:text-white uppercase tracking-widest text-xs"
             >
               Cancel
             </button>
@@ -230,24 +230,24 @@ export default function Calculator() {
           />
 
           <div>
-            <div className="flex items-center justify-between mb-1 sm:mb-1.5 px-1">
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-white/60">
+            <div className="flex items-center justify-between mb-1.5 sm:mb-2 px-1">
+              <span className="text-xs sm:text-sm uppercase tracking-[0.14em] text-white/65">
                 {isScoop ? "Scoop Size" : "Servings"}
               </span>
               <div
                 role="tablist"
                 aria-label="Serving input mode"
-                className="glass-soft rounded-full p-0.5 flex items-center text-[9px] sm:text-[10px] uppercase tracking-widest"
+                className="glass-soft rounded-full p-0.5 flex items-center text-[10px] sm:text-xs uppercase tracking-widest"
               >
                 <button
                   type="button"
                   role="tab"
                   aria-selected={!isScoop}
                   onClick={() => setField("mode")("servings")}
-                  className={`px-2 py-0.5 rounded-full transition-colors ${
+                  className={`px-2.5 py-1 rounded-full transition-colors ${
                     !isScoop
                       ? "bg-white/15 text-white"
-                      : "text-white/50 hover:text-white/80"
+                      : "text-white/55 hover:text-white/85"
                   }`}
                 >
                   Servings
@@ -257,10 +257,10 @@ export default function Calculator() {
                   role="tab"
                   aria-selected={isScoop}
                   onClick={() => setField("mode")("scoop")}
-                  className={`px-2 py-0.5 rounded-full transition-colors ${
+                  className={`px-2.5 py-1 rounded-full transition-colors ${
                     isScoop
                       ? "bg-white/15 text-white"
-                      : "text-white/50 hover:text-white/80"
+                      : "text-white/55 hover:text-white/85"
                   }`}
                 >
                   Scoop
@@ -290,11 +290,11 @@ export default function Calculator() {
           </div>
         </div>
 
-        <div className="mt-3 sm:mt-5 flex items-center justify-between gap-3">
+        <div className="mt-4 sm:mt-5 flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={onCancelEdit}
-            className="text-[10px] sm:text-[11px] uppercase tracking-widest text-white/50 hover:text-white/90 transition-colors px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg hover:bg-white/5"
+            className="text-xs sm:text-sm uppercase tracking-widest text-white/55 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
           >
             Clear
           </button>
@@ -302,21 +302,15 @@ export default function Calculator() {
             type="button"
             onClick={onCalculate}
             disabled={!canCalculate}
-            className={`relative overflow-hidden group rounded-xl px-5 py-2.5 sm:px-6 sm:py-3 text-sm font-medium tracking-wide transition-all ${
+            className={`relative overflow-hidden group rounded-xl px-6 py-3 sm:px-8 sm:py-3.5 text-base sm:text-lg font-medium tracking-wide transition-all ${
               canCalculate
-                ? "bg-gradient-to-r from-fuchsia-500/80 via-indigo-500/80 to-cyan-400/80 text-white shadow-[0_8px_30px_-8px_rgba(120,80,255,0.6)] hover:shadow-[0_12px_40px_-8px_rgba(120,80,255,0.8)] hover:brightness-110"
-                : "bg-white/5 text-white/30 cursor-not-allowed"
+                ? "bg-white text-black hover:bg-white/90 shadow-[0_8px_30px_-8px_rgba(255,255,255,0.4)]"
+                : "bg-white/10 text-white/30 cursor-not-allowed"
             }`}
           >
             <span className="relative z-10">
               {editingId ? "Update" : "Calculate"}
             </span>
-            {canCalculate && (
-              <span
-                aria-hidden
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.25),transparent)] bg-[length:200%_100%] animate-shimmer"
-              />
-            )}
           </button>
         </div>
       </section>

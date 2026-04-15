@@ -37,27 +37,21 @@ export default function ProteinList({
   const bestId = sorted[0]?.id;
 
   if (entries.length === 0) {
-    return (
-      <div className="flex-1 min-h-0 flex items-center justify-center text-center text-xs sm:text-sm text-white/40 px-4">
-        Fill in the form and tap{" "}
-        <span className="text-white/70 mx-1">Calculate</span> to start your
-        comparison.
-      </div>
-    );
+    return <div className="flex-1 min-h-0" aria-hidden />;
   }
 
   return (
     <section className="flex-1 min-h-0 flex flex-col">
-      <div className="flex items-center justify-between mb-2 px-1 shrink-0">
-        <h2 className="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-white/55">
+      <div className="flex items-center justify-between mb-3 px-1 shrink-0">
+        <h2 className="text-sm sm:text-base uppercase tracking-[0.16em] text-white/70">
           Comparison · {entries.length}
         </h2>
-        <span className="text-[10px] uppercase tracking-widest text-white/30">
-          Sorted by $/g protein
+        <span className="text-xs uppercase tracking-widest text-white/40">
+          Sorted by $/g
         </span>
       </div>
 
-      <ul className="scroll-area flex-1 min-h-0 overflow-y-auto space-y-2 sm:space-y-3 pr-1 pb-1">
+      <ul className="scroll-area flex-1 min-h-0 overflow-y-auto space-y-3 pr-1 pb-1">
         {sorted.map((entry) => {
           const isBest = entry.id === bestId && entries.length > 1;
           const isEditing = entry.id === editingId;
@@ -78,19 +72,19 @@ export default function ProteinList({
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="text-sm sm:text-base font-medium text-white truncate">
+                      <h3 className="text-lg sm:text-xl font-semibold text-white truncate">
                         {entry.name}
                       </h3>
                       {isBest && (
-                        <span className="text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded-full bg-emerald-400/15 text-emerald-300 border border-emerald-400/30">
+                        <span className="text-[10px] sm:text-xs uppercase tracking-widest px-2 py-0.5 rounded-full bg-emerald-400/15 text-emerald-300 border border-emerald-400/30">
                           Best Value
                         </span>
                       )}
                     </div>
-                    <div className="mt-0.5 text-[10px] sm:text-[11px] text-white/40">
+                    <div className="mt-1 text-sm text-white/55">
                       {formatMoney(parse(entry.totalCost), 2)}
                       {entry.totalWeight && ` · ${entry.totalWeight}kg`}
-                      {` · ${entry.proteinAmount}g protein/serving`}
+                      {` · ${entry.proteinAmount}g/serv`}
                       {` · ${formatNumber(entry.effectiveServings, 1)} servings`}
                     </div>
                   </div>
@@ -98,7 +92,7 @@ export default function ProteinList({
                     <button
                       type="button"
                       onClick={() => onModify(entry.id)}
-                      className="text-[10px] uppercase tracking-widest text-white/60 hover:text-white px-2 py-1 rounded-md hover:bg-white/10 transition-colors"
+                      className="text-xs sm:text-sm uppercase tracking-widest text-white/70 hover:text-white px-3 py-1.5 rounded-md hover:bg-white/10 transition-colors"
                     >
                       Modify
                     </button>
@@ -106,11 +100,11 @@ export default function ProteinList({
                       type="button"
                       onClick={() => onRemove(entry.id)}
                       aria-label="Remove"
-                      className="text-white/40 hover:text-red-300 p-1 rounded-md hover:bg-white/10 transition-colors"
+                      className="text-white/50 hover:text-red-300 p-1.5 rounded-md hover:bg-white/10 transition-colors"
                     >
                       <svg
-                        width="14"
-                        height="14"
+                        width="18"
+                        height="18"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -126,7 +120,7 @@ export default function ProteinList({
                   </div>
                 </div>
 
-                <div className="mt-2.5 grid grid-cols-2 gap-2 sm:gap-3">
+                <div className="mt-3 grid grid-cols-2 gap-3">
                   <Stat
                     label="$ / g protein"
                     value={formatMoney(entry.pricePerGramProtein, 4)}
@@ -157,16 +151,16 @@ function Stat({
   accent: string;
 }) {
   return (
-    <div className="relative glass-soft rounded-xl p-2.5 overflow-hidden">
+    <div className="relative glass-soft rounded-xl p-3 overflow-hidden">
       <div
         aria-hidden
         className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${accent} opacity-40 blur-xl`}
       />
       <div className="relative">
-        <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.14em] text-white/55">
+        <div className="text-xs sm:text-sm uppercase tracking-[0.14em] text-white/60">
           {label}
         </div>
-        <div className="mt-0.5 text-base sm:text-xl font-semibold tabular-nums text-gradient break-all">
+        <div className="mt-1 text-xl sm:text-2xl font-semibold tabular-nums text-gradient break-all">
           {value}
         </div>
       </div>
