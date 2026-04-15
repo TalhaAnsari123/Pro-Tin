@@ -10,6 +10,10 @@
 html,
 body {
   height: 100%;
+  /* Lock the layout viewport so the on-screen keyboard doesn't reflow the page */
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -18,8 +22,9 @@ body {
     radial-gradient(1000px 700px at 110% 10%, rgba(0, 200, 255, 0.16), transparent 55%),
     radial-gradient(900px 700px at 50% 120%, rgba(255, 80, 200, 0.14), transparent 55%),
     #05060a;
-  min-height: 100vh;
-  overflow-x: hidden;
+  /* svh = small viewport height: stays constant when mobile chrome/keyboard appears */
+  min-height: 100svh;
+  height: 100svh;
 }
 
 @layer components {

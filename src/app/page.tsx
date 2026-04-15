@@ -2,7 +2,7 @@ import Calculator from "@/components/Calculator";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full flex items-center justify-center px-4 py-12 sm:py-20">
+    <main className="relative h-[100svh] w-full flex items-center justify-center px-4 py-6 sm:py-12 overflow-hidden">
       {/* Floating ambient blobs */}
       <div
         aria-hidden
@@ -29,23 +29,23 @@ export default function Home() {
         }}
       />
 
-      <div className="relative w-full max-w-xl">
-        <header className="mb-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-soft text-xs tracking-widest uppercase text-white/70 mb-5">
+      <div className="relative w-full max-w-xl max-h-full flex flex-col">
+        <header className="mb-4 sm:mb-6 text-center shrink-0">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-soft text-[10px] tracking-widest uppercase text-white/70 mb-2 sm:mb-3">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_2px_rgba(52,211,153,0.6)]" />
             ProTin
           </div>
-          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-gradient">
+          <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight text-gradient">
             Protein Price Calculator
           </h1>
-          <p className="mt-3 text-white/60 text-sm sm:text-base">
+          <p className="mt-1.5 text-white/60 text-xs sm:text-sm">
             Find the true cost per gram of protein and per serving.
           </p>
         </header>
 
         <Calculator />
 
-        <footer className="mt-8 text-center text-xs text-white/40">
+        <footer className="mt-4 sm:mt-6 text-center text-[10px] sm:text-xs text-white/40 shrink-0">
           All values in $ — calculated locally, nothing leaves your device.
         </footer>
       </div>

@@ -39,9 +39,9 @@ export default function GlassInput({
           </span>
         )}
       </div>
-      <div className="glass-input rounded-2xl px-4 py-3 flex items-center gap-2">
+      <div className="glass-input rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2">
         {prefix && (
-          <span className="text-white/70 text-lg font-medium select-none">
+          <span className="text-white/70 text-base sm:text-lg font-medium select-none">
             {prefix}
           </span>
         )}
@@ -56,7 +56,7 @@ export default function GlassInput({
             if (v === "" || /^\d*\.?\d*$/.test(v)) onChange(v);
           }}
           placeholder={placeholder}
-          className="w-full bg-transparent outline-none text-white text-lg placeholder:text-white/25 tabular-nums"
+          className="w-full min-w-0 bg-transparent outline-none text-white text-base sm:text-lg placeholder:text-white/25 tabular-nums"
         />
         {suffix && (
           <span className="text-white/50 text-sm select-none">{suffix}</span>
